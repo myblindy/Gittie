@@ -30,8 +30,10 @@ public partial class OpenPageViewModel : ObservableObject
     {
         if (!string.IsNullOrWhiteSpace(CurrentPath))
         {
-            commonViewModel.CurrentRepositoryPath = CurrentPath;
-            await navigationService.NavigateTo<RepositoryPageViewModel>();
+            if (await commonViewModel.LoadRepository(CurrentPath))
+                await navigationService.NavigateTo<RepositoryPageViewModel>();
+            else
+                await navigationService.DisplayAlert($"Invalid repository at '{CurrentPath}'.");
         }
     }
 }

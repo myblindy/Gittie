@@ -54,6 +54,7 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     <PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
     <PackageReference Include="Goldie.MauiPlugins.PageResolver" Version="1.1.1" />
+    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0182" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 

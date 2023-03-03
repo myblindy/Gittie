@@ -14,4 +14,9 @@ public class NavigationService
     {
         await Shell.Current.GoToAsync(new($"//{typeof(TViewModel).Name[..^9]}"));
     }
+
+    public async Task DisplayAlert(string message)
+    {
+        await Shell.Current.DisplayAlert("Alert", message, "OK");
+    }
 }
