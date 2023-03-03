@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gittie.OpenPage"
+             xmlns:resolver="clr-namespace:Maui.Plugins.PageResolver;assembly=Maui.Plugins.PageResolver"
+             xmlns:vm="clr-namespace:Gittie.ViewModels"
+             BindingContext="{resolver:ResolveViewModel x:TypeArguments=vm:OpenPageViewModel}"
+             x:DataType="vm:OpenPageViewModel">
+
+    <Grid RowDefinitions="auto, *" Margin="50" RowSpacing="15">
+        <Grid ColumnDefinitions="*, auto, auto">
+            <Entry Text="{Binding CurrentPath}" Placeholder="Enter repository path..." />
+            <Button Grid.Column="1" Text="Browse..." Clicked="Browse_Clicked"/>
+            <Button Grid.Column="2" Text="Open" Command="{Binding OpenCommand}"/>
+        </Grid>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding RecentPaths}" SelectionMode="Single" ItemTapped="RecentItemTapped">
+        </ListView>
+    </Grid>
+
+</ContentPage>
